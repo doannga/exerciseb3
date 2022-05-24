@@ -116,8 +116,20 @@ class _MyHomePageState extends State<MyHomePage> {
           showDialog(
               context: context,
               builder: (context) {
-                return const SimpleDialog(
-                  title: Text('Please input number 2 other than 0!'),
+                // return const SimpleDialog(
+                //   title: Text('Please input number 2 other than 0!'),
+                // );
+                return AlertDialog(
+                  title: const Text("Error"),
+                  content: const Text("Please input number 2 other than 0!"),
+                  actions: [
+                    TextButton(
+                      child: const Text("OK"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    )
+                  ],
                 );
               });
         }
@@ -194,7 +206,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const SizedBox(
-              height: 5,
+              height: 20,
             ),
             SizedBox(
               width: 200,
@@ -217,23 +229,23 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const SizedBox(
-              height: 5,
+              height: 20,
             ),
             Text('The result: $result'),
             const SizedBox(
-              height: 5,
+              height: 20,
             ),
             ElevatedButton(onPressed: add, child: const Text('+')),
             const SizedBox(
-              height: 5,
+              height: 20,
             ),
             ElevatedButton(onPressed: minus, child: const Text('-')),
             const SizedBox(
-              height: 5,
+              height: 20,
             ),
             ElevatedButton(onPressed: multiplication, child: const Text('*')),
             const SizedBox(
-              height: 5,
+              height: 20,
             ),
             ElevatedButton(onPressed: divide, child: const Text('/')),
           ],

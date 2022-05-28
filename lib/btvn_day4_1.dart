@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
         isValidate2 = false;
         if (double.parse(number2Ctl.text) != 0) {
           result =
-              double.parse(number1Ctl.text) / double.parse(number2Ctl.text);
+              (double.parse(number1Ctl.text) / double.parse(number2Ctl.text));
         } else {
           showDialog(
               context: context,
@@ -197,7 +197,13 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 10,
             ),
-            Text('Kết quả $result'),
+            Text(
+              'Kết quả ${result.toInt()}',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
             const SizedBox(
               height: 10,
             ),

@@ -22,11 +22,11 @@ class _FlexDemoState extends State<FlexDemo> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 40),
+                padding: EdgeInsets.symmetric(vertical: 20),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Flexible(
+                    Expanded(
                       flex: 2,
                       child: Image.asset(
                         'assets/images/image1.PNG',
@@ -37,10 +37,10 @@ class _FlexDemoState extends State<FlexDemo> {
                     // const SizedBox(
                     //   width: 5,
                     // ),
-                    Flexible(
+                    Expanded(
                       flex: 3,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           Text(
                             'Lập trình Flutter',
@@ -69,14 +69,14 @@ class _FlexDemoState extends State<FlexDemo> {
                 thickness: 2,
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 30),
+                padding: EdgeInsets.symmetric(vertical: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Flexible(
+                    Expanded(
                       flex: 1,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Text(
                             'Lập trình Android',
@@ -97,7 +97,7 @@ class _FlexDemoState extends State<FlexDemo> {
                         ],
                       ),
                     ),
-                    Flexible(
+                    Expanded(
                       flex: 1,
                       child: Image.asset(
                         'assets/images/image2.PNG',
@@ -111,21 +111,22 @@ class _FlexDemoState extends State<FlexDemo> {
                 thickness: 2,
               ),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                //padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Flexible(
+                    Expanded(
                       flex: 3,
                       child: Image.asset(
                         'assets/images/image3.PNG',
+                        alignment: Alignment.centerLeft,
                       ),
                     ),
-                    Flexible(
+                    Expanded(
                       flex: 2,
                       child: Column(
                         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        //crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
                           Text(
                             'Lập trình Java cơ bản',

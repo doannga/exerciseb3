@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'btvn_day4_2.dart';
+import 'btvn_day4_1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
       //home: const WelcomPage(),
       //home: const TasteMe(),
-      home: const FlexDemo(),
+      //home: const FlexDemo(),
     );
   }
 }

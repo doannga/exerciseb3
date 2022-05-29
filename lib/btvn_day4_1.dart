@@ -17,78 +17,45 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isValidate2 = false;
   double result = 0;
 
-  void add() {
+  bool _validate() {
+    isValidate1 = false;
+    isValidate2 = false;
     if (number1Ctl.text.isEmpty || number1Ctl.text.length > 10) {
-      setState(() {
-        isValidate1 = true;
-      });
+      isValidate1 = true;
+      setState(() {});
     }
     if (number2Ctl.text.isEmpty || number2Ctl.text.length > 10) {
-      setState(() {
-        isValidate2 = true;
-      });
-    } else if (number1Ctl.text.isNotEmpty && number2Ctl.text.isNotEmpty) {
-      setState(() {
-        isValidate1 = false;
-        isValidate2 = false;
-        result = double.parse(number1Ctl.text) + double.parse(number2Ctl.text);
-      });
+      isValidate2 = true;
+      setState(() {});
+    }
+    return isValidate1 || isValidate2;
+  }
+
+  void add() {
+    if (!_validate()) {
+      result = double.parse(number1Ctl.text) + double.parse(number2Ctl.text);
+      setState(() {});
     }
   }
 
   void minus() {
-    if (number1Ctl.text.isEmpty) {
-      setState(() {
-        isValidate1 = true;
-      });
-    }
-    if (number2Ctl.text.isEmpty) {
-      setState(() {
-        isValidate2 = true;
-      });
-    } else if (number1Ctl.text.isNotEmpty && number2Ctl.text.isNotEmpty) {
-      setState(() {
-        isValidate1 = false;
-        isValidate2 = false;
-        result = double.parse(number1Ctl.text) - double.parse(number2Ctl.text);
-      });
+    if (!_validate()) {
+      result = double.parse(number1Ctl.text) - double.parse(number2Ctl.text);
+      setState(() {});
     }
   }
 
   void multiplication() {
-    if (number1Ctl.text.isEmpty) {
-      print('thuynga.dt: Loi o day ${number1Ctl.text}');
+    if (!_validate()) {
       setState(() {
-        isValidate1 = true;
-      });
-    }
-    if (number2Ctl.text.isEmpty) {
-      setState(() {
-        isValidate2 = true;
-      });
-    } else if (number1Ctl.text.isNotEmpty && number2Ctl.text.isNotEmpty) {
-      setState(() {
-        isValidate1 = false;
-        isValidate2 = false;
         result = double.parse(number1Ctl.text) * double.parse(number2Ctl.text);
       });
     }
   }
 
   void divide() {
-    if (number1Ctl.text.isEmpty) {
+    if (!_validate()) {
       setState(() {
-        isValidate1 = true;
-      });
-    }
-    if (number2Ctl.text.isEmpty) {
-      setState(() {
-        isValidate2 = true;
-      });
-    } else if (number1Ctl.text.isNotEmpty && number2Ctl.text.isNotEmpty) {
-      setState(() {
-        isValidate1 = false;
-        isValidate2 = false;
         if (double.parse(number2Ctl.text) != 0) {
           result =
               (double.parse(number1Ctl.text) / double.parse(number2Ctl.text));
@@ -96,9 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
           showDialog(
               context: context,
               builder: (context) {
-                // return const SimpleDialog(
-                //   title: Text('Please input number 2 other than 0!'),
-                // );
                 return AlertDialog(
                   title: const Text("Error"),
                   content: const Text("Please input number 2 other than 0!"),
@@ -123,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(
+      body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -151,6 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 textInputAction: TextInputAction.done,
                 // auto focus to textfield
                 autofocus: true,
+                // maxLength: 10,
                 decoration: InputDecoration(
                   hintText: 'Nhập số A',
                   // border: const OutlineInputBorder(

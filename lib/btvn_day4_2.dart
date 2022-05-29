@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FlexDemo extends StatefulWidget {
@@ -18,20 +19,19 @@ class _FlexDemoState extends State<FlexDemo> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 40),
           child: Column(
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       flex: 2,
                       child: Image.asset(
                         'assets/images/image1.PNG',
-                        //height: 200,
-                        //alignment: Alignment.centerLeft,
+                        fit: BoxFit.cover,
                       ),
                     ),
                     // const SizedBox(
@@ -39,26 +39,29 @@ class _FlexDemoState extends State<FlexDemo> {
                     // ),
                     Expanded(
                       flex: 3,
-                      child: Column(
-                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text(
-                            'Lập trình Flutter',
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 26,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Column(
+                          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              'Lập trình Flutter',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 24,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            'Thực chiến dự án app mobile 2022',
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 18,
+                            Text(
+                              'Thực chiến dự án app mobile 2022',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 20,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -68,39 +71,43 @@ class _FlexDemoState extends State<FlexDemo> {
                 color: Colors.green,
                 thickness: 2,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(
                       flex: 1,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text(
-                            'Lập trình Android',
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 26,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Lập trình Android',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 24,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            'Java + Kotlin',
-                            style: TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 18,
+                            Text(
+                              'Java + Kotlin',
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 20,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     Expanded(
                       flex: 1,
                       child: Image.asset(
                         'assets/images/image2.PNG',
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ],
@@ -110,23 +117,21 @@ class _FlexDemoState extends State<FlexDemo> {
                 color: Colors.green,
                 thickness: 2,
               ),
-              Container(
-                //padding: const EdgeInsets.symmetric(vertical: 5),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Image.asset(
-                        'assets/images/image3.PNG',
-                        alignment: Alignment.centerLeft,
-                      ),
+              Row(
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Image.asset(
+                      'assets/images/image3.PNG',
+                      fit: BoxFit.cover,
                     ),
-                    Expanded(
-                      flex: 2,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8),
                       child: Column(
-                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
                           Text(
                             'Lập trình Java cơ bản',
@@ -140,15 +145,15 @@ class _FlexDemoState extends State<FlexDemo> {
                             'Cho người mới bắt đầu',
                             style: TextStyle(
                               fontWeight: FontWeight.normal,
-                              fontSize: 18,
+                              fontSize: 20,
                             ),
                             textAlign: TextAlign.center,
                           ),
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),

@@ -87,140 +87,142 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              width: 200,
-              height: 150,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/calculator-1470.png'),
-                    fit: BoxFit.cover),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: 200,
-              child: TextField(
-                // Show A numerical keyboard when tapping on textfield
-                keyboardType:
-                    const TextInputType.numberWithOptions(decimal: true),
-                // Show done button on keyboard
-                textInputAction: TextInputAction.done,
-                // auto focus to textfield
-                autofocus: true,
-                // maxLength: 10,
-                decoration: InputDecoration(
-                  hintText: 'Nhập số A',
-                  // border: const OutlineInputBorder(
-                  //     borderSide: BorderSide(color: Colors.lightBlue)),
-                  errorText:
-                      isValidate1 ? 'Please enter a valid number1' : null,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                width: 200,
+                height: 150,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/calculator-1470.png'),
+                      fit: BoxFit.cover),
                 ),
-                inputFormatters: <TextInputFormatter>[
-                  //FilteringTextInputFormatter.digitsOnly,
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ],
-                //Easy way: get Text from textfield
-                // onChanged: (text) {
-                //   number1 = double.parse(text);
-                // },
-                controller: number1Ctl,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              width: 200,
-              child: TextField(
-                keyboardType:
-                    const TextInputType.numberWithOptions(decimal: true),
-                textInputAction: TextInputAction.done,
-                autofocus: true,
-                //maxLength: 10,
-                decoration: InputDecoration(
-                  hintText: 'Nhập số B',
-                  // border: const OutlineInputBorder(
-                  //   borderSide: BorderSide(color: Colors.lightBlue),
-                  // ),
-                  errorText:
-                      isValidate2 ? 'Please enter a valid number2' : null,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: TextField(
+                  // Show A numerical keyboard when tapping on textfield
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
+                  // Show done button on keyboard
+                  textInputAction: TextInputAction.done,
+                  // auto focus to textfield
+                  autofocus: true,
+                  // maxLength: 10,
+                  decoration: InputDecoration(
+                    hintText: 'Nhập số A',
+                    // border: const OutlineInputBorder(
+                    //     borderSide: BorderSide(color: Colors.lightBlue)),
+                    errorText:
+                        isValidate1 ? 'Please enter a valid number1' : null,
+                  ),
+                  inputFormatters: <TextInputFormatter>[
+                    //FilteringTextInputFormatter.digitsOnly,
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                  ],
+                  //Easy way: get Text from textfield
+                  // onChanged: (text) {
+                  //   number1 = double.parse(text);
+                  // },
+                  controller: number1Ctl,
                 ),
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ],
-                controller: number2Ctl,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Kết quả ${result.toInt()}',
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
+              const SizedBox(
+                height: 10,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
+              SizedBox(
+                width: double.infinity,
+                child: TextField(
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
+                  textInputAction: TextInputAction.done,
+                  autofocus: true,
+                  //maxLength: 10,
+                  decoration: InputDecoration(
+                    hintText: 'Nhập số B',
+                    // border: const OutlineInputBorder(
+                    //   borderSide: BorderSide(color: Colors.lightBlue),
+                    // ),
+                    errorText:
+                        isValidate2 ? 'Please enter a valid number2' : null,
+                  ),
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                  ],
+                  controller: number2Ctl,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'Kết quả ${result.toInt()}',
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Wrap(
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                      width: 80,
+                      child: ElevatedButton(
+                          onPressed: add, child: const Text('+'))),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
                     width: 80,
-                    child:
-                        ElevatedButton(onPressed: add, child: const Text('+'))),
-                const SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  width: 80,
-                  child: ElevatedButton(
-                    onPressed: minus,
-                    child: const Text('-'),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.red,
+                    child: ElevatedButton(
+                      onPressed: minus,
+                      child: const Text('-'),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.red,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  width: 80,
-                  child: ElevatedButton(
-                    onPressed: multiplication,
-                    child: const Text('*'),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: 80,
+                    child: ElevatedButton(
+                      onPressed: multiplication,
+                      child: const Text('*'),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.green,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  width: 80,
-                  child: ElevatedButton(
-                    onPressed: divide,
-                    child: const Text('/'),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.orange,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: 80,
+                    child: ElevatedButton(
+                      onPressed: divide,
+                      child: const Text('/'),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.orange,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

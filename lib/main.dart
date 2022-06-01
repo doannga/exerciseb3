@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_calculator_b3/screen_five/screen_five.dart';
+import 'package:simple_calculator_b3/screen_five/btvn_b5/my_cart_2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
       //home: const WelcomPage(),
       //home: const TasteMe(),
       //home: const FlexDemo(),
-      home: const ScreenFive(),
+      // home: const ScreenFive(),
+      home: const MyCard2(),
     );
   }
 }

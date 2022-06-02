@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ItemWidget extends StatefulWidget {
@@ -46,9 +47,14 @@ class _ItemWidgetState extends State<ItemWidget> {
             //   ),
             // ),
             Flexible(
-              child: Image.network(
-                widget.itemImage,
-                fit: BoxFit.fitHeight,
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(20)),
+                child: Image.network(
+                  widget.itemImage,
+                  fit: BoxFit.fitHeight,
+                ),
               ),
             ),
             Flexible(
